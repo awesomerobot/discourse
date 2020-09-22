@@ -28,6 +28,7 @@ export default Component.extend(UtilsMixin, {
     "selectedValue:data-value",
     "selectedNames:data-name",
     "buttonTitle:title",
+    "ariaLabel:aria-label",
   ],
 
   selectedValue: computed("value", function () {
@@ -56,6 +57,10 @@ export default Component.extend(UtilsMixin, {
     const icon = makeArray(this.selectKit.options.icon);
     const icons = makeArray(this.selectKit.options.icons);
     return icon.concat(icons).filter(Boolean);
+  }),
+
+  ariaLabel: computed("selectKit.options.ariaLabel", function () {
+    return this.selectKit.options.ariaLabel;
   }),
 
   selectKitId: computed("selectKit.uniqueID", function () {
