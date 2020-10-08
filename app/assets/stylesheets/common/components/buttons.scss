@@ -13,18 +13,17 @@
   $hover-bg-color: var(--primary-medium),
   $hover-icon-color: var(--primary-low)
 ) {
-  display: inline-block;
-  margin: 0;
-  padding: 6px 12px;
-  min-height: 30px;
-  border: none;
   box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0.4rem 0.8rem;
+  border: none;
   font-weight: normal;
   color: $text-color;
   background: $bg-color;
   font-size: $font-0;
-  line-height: $line-height-small;
-  text-align: center;
+  justify-content: center;
   cursor: pointer;
   transition: all 0.25s;
   .d-icon {

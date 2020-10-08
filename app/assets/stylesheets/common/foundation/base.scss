@@ -7,7 +7,7 @@
 
 html {
   color: var(--primary);
-  font-family: $base-font-family;
+  font-family: arial; // temporary override, remove before merging
   font-size: $base-font-size;
   line-height: $line-height-large;
   background-color: var(--secondary);
