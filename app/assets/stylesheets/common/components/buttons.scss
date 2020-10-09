@@ -16,21 +16,21 @@
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   margin: 0;
   padding: 0.4rem 0.8rem;
   border: none;
+  font-size: $font-0;
   font-weight: normal;
+  line-height: $line-height-large;
   color: $text-color;
   background: $bg-color;
-  font-size: $font-0;
-  justify-content: center;
   cursor: pointer;
   transition: all 0.25s;
   .d-icon {
     color: $icon-color;
     margin-right: 0.45em;
     transition: color 0.25s;
-    line-height: $line-height-medium; // Match button text line-height
   }
   &.no-text {
     .d-icon {
@@ -54,6 +54,7 @@
   &[disabled],
   &.disabled {
     opacity: 0.4;
+    cursor: not-allowed;
     &:hover {
       color: $text-color;
       background: $bg-color;
@@ -61,7 +62,6 @@
         color: $icon-color;
       }
     }
-    cursor: not-allowed;
   }
 
   .loading-container {
@@ -84,14 +84,9 @@
     }
 
     .loading-icon {
-      -webkit-animation: rotate-forever 1s infinite linear, fadein 1s;
       animation: rotate-forever 1s infinite linear, fadein 1s;
     }
   }
-}
-
-.btn.hidden {
-  display: none;
 }
 
 // Default button
@@ -223,9 +218,8 @@
 // Small
 
 .btn-small {
-  padding: 6px;
+  padding: 0.4rem;
   font-size: $font-down-1;
-  min-height: 20px;
   .d-icon {
     max-height: 0.87em;
   }
@@ -234,16 +228,14 @@
 // Large
 
 .btn-large {
-  padding: 9px 18px;
+  padding: 0.6rem 1.2rem;
   font-size: $font-up-1;
-  line-height: $line-height-small;
 }
 
 .btn-flat {
   background: transparent;
   border: 0;
   outline: 0;
-  line-height: $line-height-small;
   transition: color 0.25s, background 0.25s;
   .d-icon {
     color: var(--primary-low-mid);
