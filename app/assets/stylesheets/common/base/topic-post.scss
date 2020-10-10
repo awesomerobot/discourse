@@ -1068,6 +1068,7 @@ a.mention-group {
     }
 
     .topic-admin-menu-button-container > span:not(:empty) {
+      display: inline-flex;
       margin: 0 0.5em 0.5em 0;
     }
   }

@@ -22,7 +22,10 @@
   border: none;
   font-size: $font-0;
   font-weight: normal;
-  line-height: $line-height-large;
+  line-height: $line-height-medium;
+  // we need a min-height here because flex items without text children don't use line-height
+  // using em ensures buttons scale up with font sizes...
+  min-height: 2em;
   color: $text-color;
   background: $bg-color;
   cursor: pointer;
