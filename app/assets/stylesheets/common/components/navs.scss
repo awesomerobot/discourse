@@ -19,11 +19,11 @@
 
 .nav-pills {
   @extend %nav;
-  @extend .clearfix;
-
+  display: flex;
   > li {
-    float: left;
     margin-right: 5px;
+    display: flex;
+    align-items: stretch;
 
     > a {
       border: none;
@@ -32,7 +32,6 @@
       font-size: $font-up-1;
       line-height: $line-height-small;
       box-sizing: border-box;
-      min-height: 30px;
       display: flex;
       align-items: center;
       transition: background 0.15s;

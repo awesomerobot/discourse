@@ -2,6 +2,7 @@
   &.combo-box {
     &.category-drop {
       min-width: auto;
+      display: flex;
 
       .badge-wrapper {
         font-size: $font-0;
