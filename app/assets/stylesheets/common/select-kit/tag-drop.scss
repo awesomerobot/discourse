@@ -2,6 +2,7 @@
   &.combo-box {
     &.tag-drop {
       min-width: auto;
+      white-space: nowrap;
 
       .select-kit-row {
         &[data-value="all-tags"],

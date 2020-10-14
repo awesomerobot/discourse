@@ -41,20 +41,25 @@
   display: grid;
   grid-gap: 1em;
   grid-template-areas: "breadcrumbs nav actions";
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto minmax(100px, 1fr) auto;
 
   .category-breadcrumb {
     grid-area: breadcrumbs;
     display: flex;
-    align-items: stretch;
   }
   #navigation-bar {
     grid-area: nav;
+    white-space: nowrap;
   }
 
   .topic-list-actions {
     display: flex;
     grid-area: actions;
+    .single-select {
+      button {
+        height: 100%;
+      }
+    }
   }
 }
 

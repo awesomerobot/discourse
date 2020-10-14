@@ -1,15 +1,27 @@
-{{bread-crumbs categories=categories category=category noSubcategories=noSubcategories}}
+{{bread-crumbs categories=categories category=category noSubcategories=noSubcategories tagId=tagId}}
 
 {{navigation-bar navItems=navItems filterMode=filterMode category=category}}
 
 <div class="topic-list-actions">
 
-  {{#if showCategoryEdit}}
-    {{d-button
-      class="btn-default edit-category"
-      action=editCategory
-      icon="wrench"
-      label="category.edit"}}
+  {{#if category}}
+    {{#unless tagId}}
+      {{#if showCategoryEdit}}
+        {{d-button
+          class="btn-default edit-category"
+          action=editCategory
+          icon="wrench"
+          label="category.edit"}}
+      {{/if}}
+
+      {{#if showCategoryNotifications}}
+        {{category-notifications-button
+          value=category.notification_level
+          category=category
+          onChange=(action "changeCategoryNotificationLevel")
+        }}
+      {{/if}}
+    {{/unless}}
   {{/if}}
 
   {{#if showCategoryAdmin}}
@@ -21,12 +33,19 @@
     }}
   {{/if}}
 
-  {{#if showCategoryNotifications}}
-    {{category-notifications-button
-      value=category.notification_level
-      category=category
-      onChange=(action "changeCategoryNotificationLevel")
-    }}
+  {{#if tagId}}
+    {{#if showToggleInfo}}
+      {{d-button icon="tag" class="btn-default" label="tagging.info" action=(action "toggleTagInfo") id="show-tag-info"}}
+    {{/if}}
+
+    {{#if tagNotification}}
+      {{#unless additionalTags}}
+        {{tag-notifications-button
+          onChange=(action "changeTagNotificationLevel")
+          value=tagNotification.notification_level
+        }}
+      {{/unless}}
+    {{/if}}
   {{/if}}
 
   {{plugin-outlet name="before-create-topic-button" tagName=""

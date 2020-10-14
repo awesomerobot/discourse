@@ -20,6 +20,7 @@
 .nav-pills {
   @extend %nav;
   display: flex;
+  flex-wrap: wrap;
   > li {
     margin-right: 5px;
     display: flex;

@@ -3,6 +3,7 @@
     &.category-drop {
       min-width: auto;
       display: flex;
+      white-space: nowrap;
 
       .badge-wrapper {
         font-size: $font-0;
