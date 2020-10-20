@@ -592,9 +592,6 @@ blockquote {
 }
 
 .gap {
-  width: calc(
-    #{$topic-avatar-width} + #{$topic-body-width} + 2 * #{$topic-body-width-padding}
-  );
   box-sizing: border-box;
 }
 
