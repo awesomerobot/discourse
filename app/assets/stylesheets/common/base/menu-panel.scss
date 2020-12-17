@@ -2,6 +2,9 @@
   position: fixed;
   right: 0;
   box-shadow: shadow("header");
+  .mobile-view & {
+    height: 100%;
+  }
   &.animate {
     transition: right 0.2s ease-out, left 0.2s ease-out;
   }
@@ -17,7 +20,7 @@
 .menu-panel.drop-down {
   position: absolute;
   // positions are relative to the .d-header .panel div
-  top: 100%; // directly underneath .panel
+  top: 100% !important; // directly underneath .panel
   right: -10px; // 10px to the right of .panel - adjust as needed
   max-height: 80vh;
 }

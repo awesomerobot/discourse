@@ -311,8 +311,6 @@ const SiteHeaderComponent = MountWidget.extend(Docking, PanEvents, {
         }
       }
 
-      const $panelBody = $(".panel-body", $panel);
-
       // We use a mutationObserver to check for style changes, so it's important
       // we don't set it if it doesn't change. Same goes for the $panelBody!
       const style = $panel.prop("style");
@@ -321,12 +319,6 @@ const SiteHeaderComponent = MountWidget.extend(Docking, PanEvents, {
         const $buttonPanel = $("header ul.icons");
         if ($buttonPanel.length === 0) {
           return;
-        }
-
-        // These values need to be set here, not in the css file - this is to deal with the
-        // possibility of the window being resized and the menu changing from .slide-in to .drop-down.
-        if (style.top !== "100%" || style.height !== "auto") {
-          $panel.css({ top: "100%", height: "auto" });
         }
 
         $("body").addClass("drop-down-mode");
@@ -343,25 +335,21 @@ const SiteHeaderComponent = MountWidget.extend(Docking, PanEvents, {
           : $(window).height();
         const winHeight = initialWinHeight - winHeightOffset;
 
-        let height;
-        if (this.site.mobileView) {
-          height = winHeight - menuTop;
-        }
+        if (style.top !== menuTop + "px") {
+          $panel.css({ top: menuTop + "px" });
 
-        const isIPadApp = document.body.classList.contains("footer-nav-ipad"),
-          heightProp = isIPadApp ? "max-height" : "height",
-          iPadOffset = 10;
+          const isIPadApp = document.body.classList.contains("footer-nav-ipad"),
+            heightProp = isIPadApp ? "max-height" : "height",
+            iPadOffset = 10;
+          let height;
+          if (isIPadApp) {
+            height = winHeight - menuTop - iPadOffset;
+          }
 
-        if (isIPadApp) {
-          height = winHeight - menuTop - iPadOffset;
-        }
-
-        if ($panelBody.prop("style").height !== "100%") {
-          $panelBody.height("100%");
-        }
-        if (style.top !== menuTop + "px" || style[heightProp] !== height) {
-          $panel.css({ top: menuTop + "px", [heightProp]: height });
-          $(".header-cloak").css({ top: menuTop + "px" });
+          if (style.top !== menuTop + "px" || style[heightProp] !== height) {
+            $panel.css({ top: menuTop + "px", [heightProp]: height });
+            $(".header-cloak").css({ top: menuTop + "px" });
+          }
         }
         $("body").removeClass("drop-down-mode");
       }
