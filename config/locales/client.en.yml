@@ -22,35 +22,35 @@ en:
         millions: "%{number}M"
     dates:
       # Use Moment.js format string: https://momentjs.com/docs/#/displaying/format/
-      time: "HH:mm"
+      time: "h:mm a"
       # Use Moment.js format string: https://momentjs.com/docs/#/displaying/format/
-      time_with_zone: "HH:mm (z)"
+      time_with_zone: "hh:mm a (z)"
       # Use Moment.js format string: https://momentjs.com/docs/#/displaying/format/
-      time_short_day: "ddd, HH:mm"
+      time_short_day: "ddd, h:mm a"
       # Use Moment.js format string: https://momentjs.com/docs/#/displaying/format/
       timeline_date: "MMM YYYY"
       # Use Moment.js format string: https://momentjs.com/docs/#/displaying/format/
-      long_no_year: "D MMM, HH:mm"
+      long_no_year: "MMM D, h:mm a"
       # Use Moment.js format string: https://momentjs.com/docs/#/displaying/format/
-      long_no_year_no_time: "D MMM"
+      long_no_year_no_time: "MMM D"
       # Use Moment.js format string: https://momentjs.com/docs/#/displaying/format/
-      full_no_year_no_time: "Do MMMM"
+      full_no_year_no_time: "MMMM Do"
       # Use Moment.js format string: https://momentjs.com/docs/#/displaying/format/
-      long_with_year: "D MMM YYYY HH:mm"
+      long_with_year: "MMM D, YYYY h:mm a"
       # Use Moment.js format string: https://momentjs.com/docs/#/displaying/format/
-      long_with_year_no_time: "D MMM YYYY"
+      long_with_year_no_time: "MMM D, YYYY"
       # Use Moment.js format string: https://momentjs.com/docs/#/displaying/format/
-      full_with_year_no_time: "D MMMM YYYY"
+      full_with_year_no_time: "MMMM Do, YYYY"
       # Use Moment.js format string: https://momentjs.com/docs/#/displaying/format/
-      long_date_with_year: "D MMM 'YY LT"
+      long_date_with_year: "MMM D, 'YY LT"
       # Use Moment.js format string: https://momentjs.com/docs/#/displaying/format/
-      long_date_without_year: "D MMM LT"
+      long_date_without_year: "MMM D, LT"
       # Use Moment.js format string: https://momentjs.com/docs/#/displaying/format/
-      long_date_with_year_without_time: "D MMM 'YY"
+      long_date_with_year_without_time: "MMM D, 'YY"
       # Use Moment.js format string: https://momentjs.com/docs/#/displaying/format/
-      long_date_without_year_with_linebreak: "D MMM <br/>LT"
+      long_date_without_year_with_linebreak: "MMM D <br/>LT"
       # Use Moment.js format string: https://momentjs.com/docs/#/displaying/format/
-      long_date_with_year_with_linebreak: "D MMM 'YY <br/>LT"
+      long_date_with_year_with_linebreak: "MMM D, 'YY <br/>LT"
 
       wrap_ago: "%{date} ago"
 
@@ -87,7 +87,7 @@ en:
           one: "%{count}y"
           other: "%{count}y"
         # Use Moment.js format string: https://momentjs.com/docs/#/displaying/format/
-        date_month: "D MMM"
+        date_month: "MMM D"
         # Use Moment.js format string: https://momentjs.com/docs/#/displaying/format/
         date_year: "MMM 'YY"
       medium:
@@ -101,7 +101,7 @@ en:
           one: "%{count} day"
           other: "%{count} days"
         # Use Moment.js format string: https://momentjs.com/docs/#/displaying/format/
-        date_year: "D MMM 'YY"
+        date_year: "MMM D, 'YY"
       medium_with_ago:
         x_minutes:
           one: "%{count} min ago"
@@ -907,6 +907,20 @@ en:
         mute_option_title: "You will not receive any notifications related to this user."
         normal_option: "Normal"
         normal_option_title: "You will be notified if this user replies to you, quotes you, or mentions you."
+      notification_schedule:
+        title: "Notification Schedule"
+        label: "Enable custom notification schedule"
+        tip: "Outside of these hours you will be put in 'do not disturb' automatically."
+        midnight: "Midnight"
+        none: "None"
+        monday: "Monday"
+        tuesday: "Tuesday"
+        wednesday: "Wednesday"
+        thursday: "Thursday"
+        friday: "Friday"
+        saturday: "Saturday"
+        sunday: "Sunday"
+        to: "to"
       activity_stream: "Activity"
       preferences: "Preferences"
       feature_topic_on_profile:
@@ -1797,8 +1811,6 @@ en:
     date_time_picker:
       from: From
       to: To
-      errors:
-        to_before_from: "To date must be later than from date."
 
     emoji_picker:
       filter_placeholder: Search for emoji
@@ -3546,7 +3558,6 @@ en:
 
     do_not_disturb:
       title: "Do not disturb for..."
-      save: "Save"
       label: "Do not disturb"
       remaining: "%{remaining} remaining"
       options:
@@ -3555,6 +3566,7 @@ en:
         two_hours: "2 hours"
         tomorrow: "Until tomorrow"
         custom: "Custom"
+      set_schedule: "Set a notification schedule"
 
   # This section is exported to the javascript for i18n in the admin section
   admin_js:
@@ -3722,6 +3734,9 @@ en:
         group_members: "Group members"
         delete: "Delete"
         delete_confirm: "Delete this group?"
+        delete_with_messages_confirm:
+          one: "Deleting this group will cause %{count} message to be orphaned, group members will no longer have access to it.<br><br>Are you sure?"
+          other: "Deleting this group will cause %{count} messages to be orphaned, group members will no longer have access to them.<br><br>Are you sure?"
         delete_failed: "Unable to delete group. If this is an automatic group, it cannot be destroyed."
         delete_owner_confirm: "Remove owner privilege for '%{username}'?"
         add: "Add"
@@ -4663,6 +4678,9 @@ en:
         anonymize_yes: "Yes, anonymize this account"
         anonymize_failed: "There was a problem anonymizing the account."
         delete: "Delete User"
+        delete_posts:
+          progress:
+            title: "Progress of deleting posts"
         merge:
           button: "Merge"
           prompt:
@@ -4675,6 +4693,8 @@ en:
             target_username_placeholder: "Username of new owner"
             transfer_and_delete: "Transfer & Delete @%{username}"
             cancel: "Cancel"
+          progress:
+            title: "Merge progress"
           confirmation:
             title: "Transfer & Delete @%{username}"
             description: |
@@ -4828,7 +4848,7 @@ en:
         recommended: "We recommend customizing the following text to suit your needs:"
         show_overriden: "Only show overridden"
         locale: "Language:"
-        fallback_locale_warning: "You are editing a variety of %{fallback}. Users who choose %{fallback} as their interface language won't see your changes."
+        fallback_locale_warning: "You are editing a language based on %{fallback}. Users who choose %{fallback} as their interface language won't see your changes."
         more_than_50_results: "There are more than 50 results. Please refine your search."
 
       settings: # used by theme and site settings

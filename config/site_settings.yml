@@ -118,6 +118,7 @@ basic:
     default: false
   set_locale_from_accept_language_header:
     default: false
+    client: true
     validator: "AllowUserLocaleEnabledValidator"
   support_mixed_text_direction:
     client: true
@@ -738,7 +739,7 @@ posting:
     default: false
     locale_default:
       en: true
-      en_US: true
+      en_GB: true
   title_fancy_entities: true
   min_personal_message_title_length:
     client: true

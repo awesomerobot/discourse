@@ -60,7 +60,7 @@ module Imap
         ActiveRecord::Base.connection_handler.clear_active_connections!
 
         idle_polling_mins = SiteSetting.imap_polling_period_mins.minutes.to_i
-        ImapSyncLog.debug("Going IDLE for #{idle_polling_mins} seconds to wait for more work", @group)
+        ImapSyncLog.debug("Going IDLE for #{idle_polling_mins} seconds to wait for more work", @group, db: false)
 
         @provider.imap.idle(idle_polling_mins) do |resp|
           if resp.kind_of?(Net::IMAP::UntaggedResponse) && resp.name == 'EXISTS'
@@ -254,7 +254,8 @@ module Imap
             destinations: [@group],
             imap_uid_validity: @status[:uid_validity],
             imap_uid: email['UID'],
-            imap_group_id: @group.id
+            imap_group_id: @group.id,
+            source: :imap
           )
           receiver.process!
 
