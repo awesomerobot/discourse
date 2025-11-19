@@ -97,8 +97,10 @@ export default class BookmarkMenu extends Component {
   get buttonIcon() {
     if (this.existingBookmark?.reminderAt) {
       return "discourse-bookmark-clock";
-    } else {
+    } else if (this.existingBookmark) {
       return "bookmark";
+    } else {
+      return "far-bookmark";
     }
   }
 
